@@ -67,11 +67,15 @@ RUN apt-get -qq update && \
 
 RUN useradd -ms /bin/bash nodeuser
 RUN mkdir /chrome
+RUN mkdir /app
 ADD https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/662092/chrome-linux.zip /chrome
 ADD https://chromedriver.storage.googleapis.com/76.0.3809.12/chromedriver_linux64.zip /chrome
 RUN unzip /chrome/chrome-linux.zip -d /chrome
 RUN unzip /chrome/chromedriver_linux64.zip -d /chrome
 RUN chown -R nodeuser:nodeuser /chrome
+RUN chown -R nodeuser:nodeuser /app
 ENV CHROME_BIN=/chrome/chrome-linux/chrome
 RUN apt-get -qq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 RUN rm /chrome/*.zip
+USER nodeuser
+WORKDIR /app
