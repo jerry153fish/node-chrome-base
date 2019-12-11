@@ -59,11 +59,13 @@ RUN apt-get -qq update && \
   wget \
   unzip \
   xvfb \
-  nodejs \
-  npm \
+  gnupg \
   curl &&\
   apt-get -y -qq install build-essential &&\
   fc-cache -f -v
+
+RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
+RUN apt-get -y install nodejs
 
 RUN useradd -ms /bin/bash nodeuser
 RUN mkdir /chrome
