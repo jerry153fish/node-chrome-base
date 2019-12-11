@@ -64,12 +64,12 @@ RUN apt-get -qq update && \
   apt-get -y -qq install build-essential &&\
   fc-cache -f -v
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 RUN apt-get -y install nodejs
 
 RUN mkdir /chrome
 RUN mkdir /app
-ADD https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/686378/chrome-linux.zip /chrome
+ADD https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/662092/chrome-linux.zip /chrome
 RUN unzip /chrome/chrome-linux.zip -d /chrome
 ENV CHROME_BIN=/chrome/chrome-linux/chrome
 ENV NODE_OPTIONS=--max_old_space_size=8000
