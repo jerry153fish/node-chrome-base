@@ -72,7 +72,7 @@ RUN mkdir /app
 ADD https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/662092/chrome-linux.zip /chrome
 RUN unzip /chrome/chrome-linux.zip -d /chrome
 ENV CHROME_BIN=/chrome/chrome-linux/chrome
-ENV NODE_OPTIONS=--max_old_space_size=8000
+ENV NODE_OPTIONS=--max_old_space_size=3000
 RUN apt-get -qq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 RUN rm /chrome/*.zip
 WORKDIR /app
