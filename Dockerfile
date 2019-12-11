@@ -73,6 +73,7 @@ RUN unzip /chrome/chrome-linux.zip -d /chrome
 RUN chown -R nodeuser:nodeuser /chrome
 RUN chown -R nodeuser:nodeuser /app
 ENV CHROME_BIN=/chrome/chrome-linux/chrome
+ENV NODE_OPTIONS=--max_old_space_size=8000
 RUN apt-get -qq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 RUN rm /chrome/*.zip
 USER nodeuser
