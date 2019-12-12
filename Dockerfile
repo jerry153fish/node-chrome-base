@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 	--no-install-recommends \
 	&& apt-get purge --auto-remove -y curl gnupg \
 RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
-RUN apt-get -y install nodejs
+RUN apt-get -y install nodejs npm
 
 ENV NODE_OPTIONS=--max_old_space_size=8000
 RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \
