@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 RUN apt-get -y install nodejs
 
-ENV NODE_OPTIONS=--max_old_space_size=3000
+ENV NODE_OPTIONS=--max_old_space_size=8000
 RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \
 	&& mkdir -p /home/chrome && chown -R chrome:chrome /home/chrome \
 	&& mkdir -p /opt/google/chrome-beta && chown -R chrome:chrome /opt/google/chrome-beta
