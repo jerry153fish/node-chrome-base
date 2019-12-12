@@ -29,6 +29,6 @@ RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \
 	&& mkdir -p /opt/google/chrome-beta && chown -R chrome:chrome /opt/google/chrome-beta
 RUN apt-get -qq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 RUN mkdir /app
-chown -R chrome:chrome /app
+RUN chown -R chrome:chrome /app
 USER chrome
 WORKDIR /app
